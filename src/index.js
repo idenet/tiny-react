@@ -1,6 +1,6 @@
-import TinyReact from './TinyReact'
+// import TinyReact from './TinyReact'
 
-const root = document.getElementById('root')
+// const root = document.getElementById('root')
 
 // const virtualDOM = (
 //   <div className="container">
@@ -20,27 +20,3 @@ const root = document.getElementById('root')
 // )
 
 // TinyReact.render(virtualDOM, root)
-
-function Demo() {
-  return <div>hello</div>
-}
-
-const Heart = () => <Demo></Demo>
-
-TinyReact.render(<Heart></Heart>, root)
-
-// class Alert extends TinyReact.Component {
-//   // 通过父类拿到props
-//   constructor(props) {
-//     super(props)
-//   }
-//   render() {
-//     return (
-//       <div>
-//         {this.props.name} {this.props.age}
-//       </div>
-//     )
-//   }
-// }
-
-// TinyReact.render(<Alert name="臧三" age={20}></Alert>, root)

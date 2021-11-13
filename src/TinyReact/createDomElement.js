@@ -11,6 +11,9 @@ export default function createDomElelment(virtualDOM) {
     newElment = document.createElement(virtualDOM.type)
     updateNodeElement(newElment, virtualDOM)
   }
+  // 将 vdom 挂载到 element中
+  newElment._virtualDOM = virtualDOM
+
   // 递归创建子节点
   virtualDOM.children.forEach((child) => {
     mountElement(child, newElment)

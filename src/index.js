@@ -21,26 +21,40 @@ const root = document.getElementById('root')
 
 // TinyReact.render(virtualDOM, root)
 
-function Demo() {
-  return <div>hello</div>
-}
-
-const Heart = () => <Demo></Demo>
-
-TinyReact.render(<Heart></Heart>, root)
-
-// class Alert extends TinyReact.Component {
-//   // 通过父类拿到props
-//   constructor(props) {
-//     super(props)
-//   }
-//   render() {
-//     return (
-//       <div>
-//         {this.props.name} {this.props.age}
-//       </div>
-//     )
-//   }
+// function Demo() {
+//   return <div>hello</div>
 // }
 
-// TinyReact.render(<Alert name="臧三" age={20}></Alert>, root)
+// const Heart = () => <Demo></Demo>
+
+// TinyReact.render(<Heart></Heart>, root)
+
+class Alert extends TinyReact.Component {
+  // 通过父类拿到props
+  constructor(props) {
+    super(props)
+    this.state = {
+      title: 'default Title',
+    }
+    this.handleClick = this.handleClick.bind(this)
+  }
+  handleClick() {
+    this.setState({
+      title: 'changed title',
+    })
+  }
+  render() {
+    console.log(this.state)
+    return (
+      <div>
+        {this.props.name} {this.props.age}
+        <div>
+          {this.state.title}
+          <button onClick={this.handleClick}>改变title</button>
+        </div>
+      </div>
+    )
+  }
+}
+
+TinyReact.render(<Alert name="臧三" age={20}></Alert>, root)

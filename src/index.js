@@ -25,11 +25,22 @@ function Demo() {
   return <div>hello</div>
 }
 
-export const Heart = () => <Demo></Demo>
+const Heart = () => <Demo></Demo>
 
-TinyReact(
-  <div>
-    22343 <Heart></Heart>
-  </div>,
-  root
-)
+TinyReact.render(<Heart></Heart>, root)
+
+// class Alert extends TinyReact.Component {
+//   // 通过父类拿到props
+//   constructor(props) {
+//     super(props)
+//   }
+//   render() {
+//     return (
+//       <div>
+//         {this.props.name} {this.props.age}
+//       </div>
+//     )
+//   }
+// }
+
+// TinyReact.render(<Alert name="臧三" age={20}></Alert>, root)

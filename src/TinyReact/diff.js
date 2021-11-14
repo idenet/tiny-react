@@ -7,6 +7,7 @@ import diffComponent from './diffComponent'
 
 export default function diff(virtualDOM, container, oldDOM) {
   const oldVirtualDOM = oldDOM && oldDOM._virtualDOM
+  // 旧的组件的实例对象
   const oldComponent = oldVirtualDOM && oldVirtualDOM.component
   // 判断oldDOM 是否存在
   if (!oldDOM) {

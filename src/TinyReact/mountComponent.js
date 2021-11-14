@@ -3,18 +3,27 @@ import isFunctionComponent from './isFunctionComponent'
 import mountNativeElment from './mountNativeElement'
 export default function mountComponent(virtualDOM, container, oldDOM) {
   let nextVirtualDOM = null
+  let component = null
   // 判断组件是类组件还是函数组件
   if (isFunctionComponent(virtualDOM)) {
     nextVirtualDOM = buildFunctionComponent(virtualDOM)
   } else {
     // 类组件
     nextVirtualDOM = buildClassComponent(virtualDOM)
+    component = nextVirtualDOM.component
   }
   // 查看还是不是组件
   if (isFunction(nextVirtualDOM)) {
     mountComponent(nextVirtualDOM, container, oldDOM)
   } else {
     mountNativeElment(nextVirtualDOM, container, oldDOM)
+  }
+  // 类组件处理ref
+  if (component) {
+    component.componentDidMount()
+    if (component.props && component.props.ref) {
+      component.props.ref(component)
+    }
   }
 }
 

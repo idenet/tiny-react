@@ -1,7 +1,7 @@
 import mountElement from './mountElement'
 import updateTextNode from './updateTextNode'
 import updateNodeElement from './updateNodeElement'
-import createDomElelment from './createDomElement'
+import createDOMElelment from './createDomElement'
 import unmountNode from './unmountNode'
 import diffComponent from './diffComponent'
 
@@ -17,7 +17,7 @@ export default function diff(virtualDOM, container, oldDOM) {
     virtualDOM.type !== oldVirtualDOM.type &&
     typeof virtualDOM.type !== 'function'
   ) {
-    const newElement = createDomElelment(virtualDOM)
+    const newElement = createDOMElelment(virtualDOM)
     // 替换元素
     oldDOM.parentNode.replaceChild(newElement, oldDOM)
     // 渲染组件

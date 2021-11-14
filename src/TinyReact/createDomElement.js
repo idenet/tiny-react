@@ -1,7 +1,7 @@
 import mountElement from './mountElement'
 import updateNodeElement from './updateNodeElement'
 
-export default function createDomElelment(virtualDOM) {
+export default function createDOMElelment(virtualDOM) {
   let newElment = null
   if (virtualDOM.type === 'text') {
     // 文本节点

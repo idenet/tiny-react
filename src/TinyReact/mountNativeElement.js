@@ -1,7 +1,7 @@
-import createDomElelment from './createDomElement'
+import createDOMElelment from './createDOMElement'
 import unmountNode from './unmountNode'
 export default function mountNativeElment(virtualDOM, container, oldDOM) {
-  let newElment = createDomElelment(virtualDOM)
+  let newElment = createDOMElelment(virtualDOM)
 
   if (oldDOM) {
     container.insertBefore(newElment, oldDOM)
